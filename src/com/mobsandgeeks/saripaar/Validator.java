@@ -50,8 +50,8 @@ public class Validator {
     static final boolean DEBUG = false;
 
     private Object mController;
-    private boolean mAnnotationsProcessed;
-    private List<ViewRulePair> mViewsAndRules;
+    protected boolean mAnnotationsProcessed;
+    protected List<ViewRulePair> mViewsAndRules;
     private Map<String, Object> mProperties;
     private AsyncTask<Void, Void, ViewRulePair> mAsyncValidationTask;
     private ValidationListener mValidationListener;
@@ -370,7 +370,7 @@ public class Validator {
         return failedViewRulePair;
     }
 
-    private void createRulesFromAnnotations(List<AnnotationFieldPair> annotationFieldPairs) {
+    protected void createRulesFromAnnotations(List<AnnotationFieldPair> annotationFieldPairs) {
         TextView passwordTextView = null;
         TextView confirmPasswordTextView = null;
 
@@ -448,7 +448,7 @@ public class Validator {
         return null;
     }
 
-    private List<AnnotationFieldPair> getSaripaarAnnotatedFields() {
+    protected List<AnnotationFieldPair> getSaripaarAnnotatedFields() {
         List<AnnotationFieldPair> annotationFieldPairs = new ArrayList<AnnotationFieldPair>();
         List<Field> fieldsWithAnnotations = getViewFieldsWithAnnotations();
 
@@ -531,7 +531,7 @@ public class Validator {
                 annotationType.equals(TextRule.class);
     }
 
-    private class ViewRulePair {
+    protected class ViewRulePair {
         public View view;
         public Rule rule;
 
