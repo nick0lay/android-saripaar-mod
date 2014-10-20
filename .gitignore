@@ -30,3 +30,5 @@ libs/
 
 # Maven
 release.properties
+
+/build
